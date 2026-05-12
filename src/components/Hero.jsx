@@ -5,7 +5,7 @@ const Hero = () => {
     const videoRef = useRef();
 
     useEffect(() => {
-        if (videoRef.current) videoRef.current.playbackRate = 3;
+        if (videoRef.current) videoRef.current.playbackRate = 1;
     }, []);
 
     return (
@@ -13,10 +13,10 @@ const Hero = () => {
 
             <div>
                 <h1>MacBook Pro</h1>
-                <img src="/public/title.png" alt="" />
+                <img src="/title.png" alt="MacBook Pro" />
             </div>
 
-            <video ref={videoRef} src="/public/videos/hero.mp4" playsInline autoPlay muted ></video>
+            <video ref={videoRef} src="/videos/hero.mp4" playsInline autoPlay muted ></video>
 
             <button>Buy</button>
 
