@@ -47,70 +47,77 @@ export default function AppleHeroSection() {
     return (
         <section className="relative min-h-screen overflow-hidden bg-[#050505] text-white">
             {/* Background Glow */}
-            <div className="absolute left-1/2 top-1/2 h-[700px] w-[700px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#adb5bd]/10 blur-3xl" />
+            <div className="absolute left-1/2 top-1/2 h-[400px] w-[400px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#adb5bd]/10 blur-3xl md:h-[700px] md:w-[700px]" />
 
             {/* Grid Overlay */}
             <div className="absolute inset-0 opacity-[0.04] bg-[linear-gradient(to_right,#ffffff_1px,transparent_1px),linear-gradient(to_bottom,#ffffff_1px,transparent_1px)] bg-[size:80px_80px]" />
 
-            <div className="relative mx-auto grid min-h-screen max-w-7xl items-center gap-10 px-6 lg:grid-cols-2">
+            <div className="relative mx-auto grid min-h-screen max-w-7xl items-center gap-12 px-4 py-16 sm:px-6 lg:grid-cols-2 lg:px-8">
+                
                 {/* LEFT CONTENT */}
-                <div className="z-10">
-                    <p className="mb-4 text-sm uppercase tracking-[0.4em] text-[#adb5bd]">
+                <div className="z-10 text-center lg:text-left">
+                    <p className="mb-4 text-xs uppercase tracking-[0.3em] text-[#adb5bd] sm:text-sm sm:tracking-[0.4em]">
                         MacBook Experience
                     </p>
 
-                    <h1 className="text-5xl font-bold leading-[0.95] md:text-7xl">
+                    <h1 className="text-4xl font-bold leading-[1] sm:text-5xl md:text-6xl lg:text-7xl">
                         Supercharged for
                         <span className="block bg-gradient-to-r from-white to-[#adb5bd] bg-clip-text text-transparent">
                             creators.
                         </span>
                     </h1>
 
-                    <p className="mt-8 max-w-xl text-lg leading-relaxed text-gray-400">
+                    <p className="mx-auto mt-6 max-w-xl text-base leading-relaxed text-gray-400 sm:text-lg lg:mx-0">
                         Experience ultra performance with immersive 3D interaction,
                         Apple-inspired motion design, and cinematic storytelling.
                     </p>
 
                     {/* CTA */}
-                    <div className="mt-10 flex flex-wrap gap-4">
-                        <button className="rounded-full bg-[#adb5bd] px-8 py-4 font-medium text-black transition-all duration-300 hover:scale-105 hover:shadow-[0_0_40px_rgba(173,181,189,0.4)]">
+                    <div className="mt-8 flex flex-col items-center gap-4 sm:flex-row sm:justify-center lg:justify-start">
+                        <button className="w-full rounded-full bg-[#adb5bd] px-8 py-4 font-medium text-black transition-all duration-300 hover:scale-105 hover:shadow-[0_0_40px_rgba(173,181,189,0.4)] sm:w-auto">
                             Buy MacBook
                         </button>
 
-                        <button className="rounded-full border border-white/10 bg-white/5 px-8 py-4 backdrop-blur-xl transition-all duration-300 hover:border-[#adb5bd] hover:bg-white/10">
+                        <button className="w-full rounded-full border border-white/10 bg-white/5 px-8 py-4 backdrop-blur-xl transition-all duration-300 hover:border-[#adb5bd] hover:bg-white/10 sm:w-auto">
                             Watch Event
                         </button>
                     </div>
 
                     {/* Bottom Stats */}
-                    <div className="mt-16 flex gap-10">
+                    <div className="mt-12 flex flex-wrap justify-center gap-8 sm:gap-10 lg:justify-start">
                         <div>
-                            <h2 className="text-3xl font-bold">M3</h2>
+                            <h2 className="text-2xl font-bold sm:text-3xl">M3</h2>
                             <p className="text-sm text-gray-500">Next Gen Chip</p>
                         </div>
 
                         <div>
-                            <h2 className="text-3xl font-bold">22hr</h2>
+                            <h2 className="text-2xl font-bold sm:text-3xl">22hr</h2>
                             <p className="text-sm text-gray-500">Battery Life</p>
                         </div>
 
                         <div>
-                            <h2 className="text-3xl font-bold">120Hz</h2>
+                            <h2 className="text-2xl font-bold sm:text-3xl">120Hz</h2>
                             <p className="text-sm text-gray-500">Liquid Retina</p>
                         </div>
                     </div>
                 </div>
 
                 {/* RIGHT 3D */}
-                <div className="relative h-[700px] w-full">
+                <div className="relative h-[350px] w-full sm:h-[500px] md:h-[600px] lg:h-[700px]">
+                    
                     {/* Glass Background */}
-                    <div className="absolute inset-0 rounded-[40px] border border-white/10 bg-white/[0.03] backdrop-blur-3xl shadow-[0_20px_120px_rgba(0,0,0,0.9)]" />
+                    <div className="absolute inset-0 rounded-[30px] border border-white/10 bg-white/[0.03] backdrop-blur-3xl shadow-[0_20px_120px_rgba(0,0,0,0.9)] lg:rounded-[40px]" />
 
                     {/* Light Reflection */}
-                    <div className="absolute left-[-20%] top-[-20%] h-[300px] w-[300px] rounded-full bg-[#adb5bd]/10 blur-3xl" />
+                    <div className="absolute left-[-20%] top-[-20%] h-[200px] w-[200px] rounded-full bg-[#adb5bd]/10 blur-3xl md:h-[300px] md:w-[300px]" />
 
                     {/* Canvas */}
-                    <Canvas camera={{ position: [0, 0, 7], fov: 35 }}>
+                    <Canvas
+                        camera={{
+                            position: [0, 0, 7],
+                            fov: window.innerWidth < 768 ? 45 : 35,
+                        }}
+                    >
                         <ambientLight intensity={1.4} />
 
                         <directionalLight
@@ -133,19 +140,21 @@ export default function AppleHeroSection() {
                     </Canvas>
 
                     {/* Floating Bottom Card */}
-                    <div className="absolute bottom-8 left-8 right-8 rounded-3xl border border-white/10 bg-black/40 p-6 backdrop-blur-2xl">
-                        <div className="flex items-center justify-between">
+                    <div className="absolute bottom-4 left-4 right-4 rounded-2xl border border-white/10 bg-black/40 p-4 backdrop-blur-2xl sm:bottom-6 sm:left-6 sm:right-6 sm:p-5 lg:bottom-8 lg:left-8 lg:right-8 lg:rounded-3xl lg:p-6">
+                        
+                        <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+                            
                             <div>
-                                <p className="text-sm uppercase tracking-[0.3em] text-[#adb5bd]">
+                                <p className="text-xs uppercase tracking-[0.2em] text-[#adb5bd] sm:text-sm sm:tracking-[0.3em]">
                                     Apple Silicon
                                 </p>
 
-                                <h2 className="mt-2 text-3xl font-bold">
+                                <h2 className="mt-2 text-xl font-bold sm:text-2xl lg:text-3xl">
                                     Performance meets elegance.
                                 </h2>
                             </div>
 
-                            <button className="rounded-full border border-white/10 bg-white/5 px-5 py-3 transition-all duration-300 hover:bg-[#adb5bd] hover:text-black">
+                            <button className="w-full rounded-full border border-white/10 bg-white/5 px-5 py-3 transition-all duration-300 hover:bg-[#adb5bd] hover:text-black sm:w-auto">
                                 Explore
                             </button>
                         </div>
