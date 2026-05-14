@@ -11,7 +11,7 @@ import Footer from "./components/Footer.jsx";
 import CallToAction from "./components/CallToAction.jsx";
 import StorySection from "./components/Story.jsx";
 
-gsap.registerPlugin(ScrollTrigger)
+gsap.registerPlugin(ScrollTrigger);
 
 const App = () => {
     return (
